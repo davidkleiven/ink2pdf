@@ -18,6 +18,8 @@ echo "\end{document}" >> $TEXFILE
 
 # Compile using XeLaTeX
 xelatex $TEXFILE
+XELATEXRETURN_VAL=$?
 
 # Clean up
 rm -f $TEXFILE "$TEXFILENOPATH.aux" "$TEXFILENOPATH.out" "$TEXFILENOPATH.log" "$TEXFILENOPATH.aux"
+exit $XELATEXRETURN_VAL
