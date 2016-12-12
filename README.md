@@ -15,3 +15,13 @@ The default path is */usr/local/bin*.
 ```bash
 make install
 ```
+
+# Usage
+To convert a inkscape generated *ps_tex* or *pdf_tex* file to a standalon pdf figure run
+```bash
+ink2pdf /path/to/figure/inkscapefigure.ps_tex
+```
+or
+```bash
+ink2pdf /path/to/figure/inkscapefigure.pdf_tex
+```
