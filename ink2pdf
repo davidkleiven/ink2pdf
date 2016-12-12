@@ -1,0 +1,23 @@
+#!/bin/bash
+
+FILENAME="$1"
+DIR=$(dirname "$FILENAME")
+TEXFILEBASE=$(echo $FILENAME | cut -d . -f 1)
+TEXFILENOPATH=$(basename "$TEXFILEBASE")
+TEXFILE="$TEXFILEBASE.tex"
+
+# Create a temporary standalone tex file
+echo "\documentclass{standalone}" >> $TEXFILE
+echo "\usepackage{graphicx}" >> $TEXFILE
+echo "\graphicspath{{$DIR/}}" >> $TEXFILE
+echo "\usepackage{color}" >> $TEXFILE
+echo "\begin{document}" >> $TEXFILE
+echo "\def\svgwidth{8cm}" >> $TEXFILE
+echo "\input{$FILENAME}" >> $TEXFILE
+echo "\end{document}" >> $TEXFILE
+
+# Compile using XeLaTeX
+xelatex $TEXFILE
+
+# Clean up
+rm -f $TEXFILE "$TEXFILENOPATH.aux" "$TEXFILENOPATH.out" "$TEXFILENOPATH.log" "$TEXFILENOPATH.aux"
