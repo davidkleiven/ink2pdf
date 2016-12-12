@@ -1,7 +1,7 @@
 include installPaths.mk
 
 test:
-	./ink2pdf ExampleFig/profil1e.ps_tex
+	./ink2pdf ExampleFig/profile.ps_tex
 
 install: test
-	cp ink2pdf $INSTALLPATH
+	cp ink2pdf ${INSTALLPATH}
