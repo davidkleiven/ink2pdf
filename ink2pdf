@@ -9,6 +9,7 @@ TEXFILE="$TEXFILEBASE.tex"
 # Create a temporary standalone tex file
 echo "\documentclass{standalone}" >> $TEXFILE
 echo "\usepackage{graphicx}" >> $TEXFILE
+echo "\usepackage{siunitx}" >> $TEXFILE
 echo "\graphicspath{{$DIR/}}" >> $TEXFILE
 echo "\usepackage{color}" >> $TEXFILE
 echo "\begin{document}" >> $TEXFILE
