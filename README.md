@@ -25,3 +25,8 @@ or
 ```bash
 ink2pdf /path/to/figure/inkscapefigure.pdf_tex
 ```
+
+The script can also convert a svg file directly to a LaTeX compiled pdf file via
+```bash
+ink2pdf /path/to/figure/inkscapefigure.svg
+```
