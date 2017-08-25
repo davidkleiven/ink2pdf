@@ -1,6 +1,16 @@
 #!/bin/bash
 
 FILENAME="$1"
+extension="${FILENAME##*.}"
+psfile="${FILENAME%.*}.ps"
+pstexfile="${FILENAME%.*}.ps_tex"
+if [[ "$extension" == "svg" ]]
+then
+  echo "Converting to ps_tex"
+  inkscape --export-ps=$psfile --export-latex --without-gui ${FILENAME}
+  FILENAME=$pstexfile
+fi
+
 DIR=$(dirname "$FILENAME")
 TEXFILEBASE=$(echo $FILENAME | cut -d . -f 1)
 TEXFILENOPATH=$(basename "$TEXFILEBASE")
