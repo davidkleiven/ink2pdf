@@ -1,6 +1,20 @@
 #!/bin/bash
+# Usage:
+# ink2pdf filename <fontsize>
+#
+# Supported fontsizes: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt or 20pt
+# Example:
+# ink2pdf exampleFig.svg 14pt
 
 FILENAME="$1"
+if [ -z "$2" ]
+then
+  fontsize="12pt"
+else
+  fontsize="$2"
+fi
+
+echo "Fontsize: $fontsize"
 extension="${FILENAME##*.}"
 psfile="${FILENAME%.*}.ps"
 pstexfile="${FILENAME%.*}.ps_tex"
@@ -17,7 +31,7 @@ TEXFILENOPATH=$(basename "$TEXFILEBASE")
 TEXFILE="$TEXFILEBASE.tex"
 
 # Create a temporary standalone tex file
-echo "\documentclass{standalone}" >> $TEXFILE
+echo "\documentclass[class=extarticle,${fontsize}]{standalone}" >> $TEXFILE
 echo "\usepackage{graphicx}" >> $TEXFILE
 echo "\usepackage{siunitx}" >> $TEXFILE
 echo "\graphicspath{{$DIR/}}" >> $TEXFILE
