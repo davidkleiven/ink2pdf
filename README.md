@@ -30,3 +30,10 @@ The script can also convert a svg file directly to a LaTeX compiled pdf file via
 ```bash
 ink2pdf /path/to/figure/inkscapefigure.svg
 ```
+
+The fontsize used in the figure can be specified as a second argument
+```bash
+ink2pdf inkfig.svg 14pt
+```
+Supported fonts: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt and 20pt
+12pt is the default.
