@@ -48,6 +48,11 @@ XELATEXRETURN_VAL=$?
 # Clean up
 rm -f $TEXFILE "$TEXFILENOPATH.aux" "$TEXFILENOPATH.out" "$TEXFILENOPATH.log" "$TEXFILENOPATH.aux"
 
+if [[ "$extension" == "svg" ]]
+then
+  rm $psfile $pstexfile
+fi
+
 # Move the pdf file to the correct directory
 pdffile="${TEXFILE%.*}".pdf # Contains the path
 pdffile=$(basename "$pdffile")
