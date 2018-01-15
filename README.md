@@ -37,3 +37,9 @@ ink2pdf inkfig.svg 14pt
 ```
 Supported fonts: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt and 20pt
 12pt is the default.
+
+To change to sans font one have to use
+```bash
+ink2pdf inkfig.svg 12pt sans
+```
+(at the moment one have to specify the font size in order to change the font type)
