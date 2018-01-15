@@ -14,7 +14,20 @@ else
   fontsize="$2"
 fi
 
+if [ -z "$3" ]
+then
+  font=""
+else
+  if [[ "$3" == "sans" ]]
+  then
+    font="\textsf"
+  else
+    font=""
+  fi
+fi
+
 echo "Fontsize: $fontsize"
+echo "Font default: $font"
 extension="${FILENAME##*.}"
 psfile="${FILENAME%.*}.ps"
 pstexfile="${FILENAME%.*}.ps_tex"
@@ -36,9 +49,12 @@ echo "\usepackage{graphicx}" >> $TEXFILE
 echo "\usepackage{siunitx}" >> $TEXFILE
 echo "\graphicspath{{$DIR/}}" >> $TEXFILE
 echo "\usepackage{color}" >> $TEXFILE
+echo "\usepackage{fontspec}" >> $TEXFILE
 echo "\begin{document}" >> $TEXFILE
+echo "${font}{" >> $TEXFILE
 echo "\def\svgwidth{8cm}" >> $TEXFILE
 echo "\input{$FILENAME}" >> $TEXFILE
+echo "}" >> $TEXFILE
 echo "\end{document}" >> $TEXFILE
 
 # Compile using XeLaTeX
@@ -47,6 +63,7 @@ XELATEXRETURN_VAL=$?
 
 # Clean up
 rm -f $TEXFILE "$TEXFILENOPATH.aux" "$TEXFILENOPATH.out" "$TEXFILENOPATH.log" "$TEXFILENOPATH.aux"
+#rm -f "$TEXFILENOPATH.aux" "$TEXFILENOPATH.out" "$TEXFILENOPATH.log" "$TEXFILENOPATH.aux"
 
 if [[ "$extension" == "svg" ]]
 then
