@@ -5,6 +5,7 @@ before_install:
   - sudo apt-get install texlive-xetex
   - sudo apt-get install texlive-latex-recommended
   - sudo apt-get install texlive-latex-extra
+  - sudo apt-get install texlive-science
 
 script:
   - bash tests.sh
