@@ -4,6 +4,7 @@ before_install:
   - sudo apt-get install inkscape
   - sudo apt-get install texlive-xetex
   - sudo apt-get install texlive-latex-recommended
+  - sudo apt-get install texlive-latex-extra
 
 script:
   - bash tests.sh
