@@ -1,0 +1,9 @@
+languague: bash
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install inkscape
+  - sudo apt-get install texlive-xetex
+  - sudo apt-get install texlive-latex-recommended
+
+script:
+  - bash tests.sh
