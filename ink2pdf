@@ -47,6 +47,7 @@ TEXFILE="$TEXFILEBASE.tex"
 echo "\documentclass[class=extarticle,${fontsize}]{standalone}" >> $TEXFILE
 echo "\usepackage{graphicx}" >> $TEXFILE
 echo "\usepackage{siunitx}" >> $TEXFILE
+echo "\usepackage{mhchem}" >> $TEXFILE
 echo "\graphicspath{{$DIR/}}" >> $TEXFILE
 echo "\usepackage{color}" >> $TEXFILE
 echo "\usepackage{fontspec}" >> $TEXFILE
