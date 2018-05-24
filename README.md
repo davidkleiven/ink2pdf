@@ -43,3 +43,16 @@ To change to sans font one have to use
 ink2pdf inkfig.svg 12pt sans
 ```
 (at the moment one have to specify the font size in order to change the font type)
+
+In Python the follow *rcParams* settings can be useful to include in the beginning
+of the script
+```python
+import matplotlib as mpl
+mpl.rcParams["svg.fonttype"] = "none"
+mpl.rcParams["font.size"] = 18
+mpl.rcParams["axes.unicode_minus"] = False
+```
+This works very well when converting the figure with font size 10pt i.e.
+```bash
+ink2pdf figure.svg 10pt
+```
