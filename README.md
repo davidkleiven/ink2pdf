@@ -44,7 +44,7 @@ ink2pdf inkfig.svg 12pt sans
 ```
 (at the moment one have to specify the font size in order to change the font type)
 
-In Python the follow *rcParams* settings can be useful to include in the beginning
+In Python the following *rcParams* settings can be useful to include in the beginning
 of the script
 ```python
 import matplotlib as mpl
