@@ -58,3 +58,13 @@ This works very well when converting the figure with font size 10pt i.e.
 ```bash
 ink2pdf figure.svg 10pt
 ```
+
+Troubleshooting
+=================
+
+1. The figure looks is far away from expected (text is shifted a lot etc.)
+
+    This can be because of the document page size and/or a missing bounding box.
+    To fix that, draw a rectangle with white fill and place it in the background 
+    in inkscape. When the rectange is selected, resize the page to selection in the
+    document property menu.
